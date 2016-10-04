@@ -26,7 +26,7 @@ echo Type password for account admin and press ENTER:
 read -s PASSWORD
 
 # Run Docker container that will generate settings.js in /data with the right password for admin
-docker run --rm -v $NODERED_DATA_VOLUME:/data maski/nodered-docker-pwdgenerator /tmp/generate-settings.sh $PASSWORD
+docker run --rm -e PASSWORD=$PASSWORD -v $NODERED_DATA_VOLUME:/data maski/nodered-docker-pwdgenerator
 
 # Run Node-RED with the same volume and the variable so that jwilder/nginx-proxy automatically proxies it
 docker run -d --name nodered-$NAME -e VIRTUAL_HOST=$NAME$SUBDOMAIN -v $NODERED_DATA_VOLUME:/data maski/node-red-docker

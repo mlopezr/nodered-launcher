@@ -4,7 +4,5 @@ VOLUME /data
 
 COPY . /tmp/
 
-WORKDIR /tmp
-
 CMD /tmp/generate-settings.sh
 

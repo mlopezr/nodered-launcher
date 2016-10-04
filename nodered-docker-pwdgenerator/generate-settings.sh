@@ -1,11 +1,9 @@
 #!/bin/bash
 
-if [ $# -ne 1 ]; then
-	echo Syntax: $0 password
+if [ -z "$PASSWORD" ]; then
+	echo ERROR: You have to pass the environment variable PASSWORD
 	exit 1
 fi
-
-PASSWORD=$1
 
 # Generate bcrypt hash for password
 cd /usr/src/node-red/node_modules/node-red
