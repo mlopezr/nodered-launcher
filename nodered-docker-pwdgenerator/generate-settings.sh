@@ -15,3 +15,5 @@ export PASSWORD_HASH=`node -e "console.log(require('bcryptjs').hashSync(process.
 cd /tmp
 ./mo nodered-settings.js.mo > /data/settings.js
 
+# Copy sample flows file
+cp /tmp/flows.json /data/flows.json
